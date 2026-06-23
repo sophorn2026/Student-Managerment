@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700;900&family=Kantumruy+Pro:ital,wght@0,300..700;1,300..700&family=Moul&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Kantumruy Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-battambang: "Battambang", "Khmer OS Battambang", "Kantumruy Pro", sans-serif;
+  --font-moul: "Moul", serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F0F2F5;
+  color: #1e293b;
+}
+
+.font-battambang, .font-battambang .font-sans {
+  font-family: var(--font-battambang), sans-serif !important;
+}
+
+/* Customize Moul class for royal headers */
+.font-moul {
+  font-family: "Moul", serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+/* Dynamic slide-in animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* High-contrast printing configurations matching school rules */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  .print\:p-0 {
+    padding: 0 !important;
+  }
+  .print\:m-0 {
+    margin: 0 !important;
+  }
+  .print\:border-0 {
+    border: 0 !important;
+  }
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+  .print\:w-full {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Force landscape page sizing for student cards inside horizontal layout */
+  @page {
+    size: A4 landscape;
+    margin: 0.8cm;
+  }
+}
+
